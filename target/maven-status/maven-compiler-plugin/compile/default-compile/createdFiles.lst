@@ -1,0 +1,4 @@
+stepdefs/DuckGoStepdefs.class
+Locators/DuckGoElements.class
+screens/DuckGoScreens.class
+utilities/ScenarioContext.class

@@ -1,23 +1,16 @@
-package screens;
-
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+import utilities.DriverFactory;
 
-import java.util.concurrent.TimeUnit;
+public class SampleTest extends DriverFactory{
 
-public class SampleTest{
-
-    WebDriver driver;
     @BeforeTest
     public void beforeTest(){
         try{
             System.out.println("Before Test");
-            System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver");
-            driver =new ChromeDriver();
-            driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+            DriverFactory.getDriver();
         }catch(Exception e){
             System.out.println("Exception->"+e.getMessage());
         }
@@ -26,8 +19,10 @@ public class SampleTest{
     public void sampleTest(){
         try{
             System.out.println("Inside of Test");
-            driver.get("https://start.duckduckgo.com/");
+            DriverFactory.getDriver().get("https://start.duckduckgo.com/");
             Thread.sleep(3000);
+
+
         }catch(Exception e){
             System.out.println("Exception->"+e.getMessage());
         }

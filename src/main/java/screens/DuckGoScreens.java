@@ -1,21 +1,19 @@
 package screens;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.asserts.Assertion;
+import utilities.DriverFactory;
 
 
-public class DuckGoScreens {
+public class DuckGoScreens extends DriverFactory {
 
-    WebDriver driver=new ChromeDriver();
     public DuckGoScreens(){
-
+        super();
     }
 
     public void navigateToDuckGoApplication()  {
         try{
-            driver.get("https://start.duckduckgo.com");
+            DriverFactory.getDriver().get("https://start.duckduckgo.com");
             Thread.sleep(3000);
         }
         catch (Exception e){

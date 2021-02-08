@@ -21,7 +21,6 @@ public class SampleTest extends DriverFactory{
             DriverFactory.getDriver().get("https://start.duckduckgo.com/");
             Thread.sleep(3000);
 
-
         }catch(Exception e){
             System.out.println("Exception->"+e.getMessage());
         }
@@ -29,7 +28,9 @@ public class SampleTest extends DriverFactory{
 
     @AfterTest
     public void afterTest(){
+
         System.out.println("After Test");
+        DriverFactory.getDriver().close();
     }
 
 }

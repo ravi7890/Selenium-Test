@@ -4,6 +4,8 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+
+import io.cucumber.datatable.DataTable;
 import screens.DuckGoScreens;
 
 
@@ -21,11 +23,6 @@ public class DuckGoStepdefs {
 
     }
 
-    @When("I look at the page")
-    public void iLookAtThePage() {
-        duckGoScreens.lookAtDuckGoApplication();
-    }
-
     @Then("I expect to see the duckduckgo logo on the page")
     public void iExpectToSeeTheDuckduckgoLogoOnThePage() {
         duckGoScreens.verifyDuckGoLogoinHomePage();
@@ -34,6 +31,7 @@ public class DuckGoStepdefs {
 
     @When("I type {string} into the search box")
     public void iTypeIntoTheSearchBox(String arg0) {
+        duckGoScreens.searchItem(arg0);
     }
 
     @Then("I expect to see exactly {int} suggestions in the typeahead dropdown")
@@ -53,9 +51,6 @@ public class DuckGoStepdefs {
     public void iExpectToSeeAThemesLink() {
     }
 
-    @When("I go to the homepage and type <see-below-test-data-table> Then click the magnifying glass")
-    public void iGoToTheHomepageAndTypeSeeBelowTestDataTableThenClickTheMagnifyingGlass() {
-    }
 
     @When("I click on the themes link then click on the dark mode theme button")
     public void iClickOnTheThemesLinkThenClickOnTheDarkModeThemeButton() {
@@ -84,5 +79,9 @@ public class DuckGoStepdefs {
 
     @And("the Total Direct Queries should be equal to the sum of all the total directs from each month")
     public void theTotalDirectQueriesShouldBeEqualToTheSumOfAllTheTotalDirectsFromEachMonth() {
+    }
+
+    @When("I go to the homepage and type Then click the magnifying glass")
+    public void iGoToTheHomepageAndTypeThenClickTheMagnifyingGlass(DataTable dataTable) {
     }
 }

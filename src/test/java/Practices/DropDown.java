@@ -11,6 +11,7 @@ public class DropDown {
             driver.manage().deleteAllCookies();
             driver.get(link);
             driver.findElement(By.xpath("//a[text()='Dropdown'])")).click();
+            //rahul
         }
         catch (Exception e){
             System.out.println("Error"+e.getLocalizedMessage());
